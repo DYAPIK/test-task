@@ -7,4 +7,8 @@ interface Window {
 declare module 'bem-cn';
 declare module 'react-redux';
 declare module 'react-router';
-declare module 'react-bootstrap';
+declare module 'material-ui/Tabs';
+declare module 'material-ui/Paper';
+declare module 'material-ui/Menu';
+declare module 'material-ui/MenuItem';
+declare module 'material-ui/styles/MuiThemeProvider';

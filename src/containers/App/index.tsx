@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import * as block from 'bem-cn';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TableMenu from 'components/TableMenu'
+import FiguresMenu from 'components/FiguresMenu';
+
 
 class App extends React.Component<{}, {}> {
 
@@ -10,9 +13,12 @@ class App extends React.Component<{}, {}> {
     render () {
         const b = this.b;
         return (
-            <div className={b()}>
-               <TableMenu />
-            </div>
+            <MuiThemeProvider>
+                <div>
+                    <FiguresMenu />
+                    <TableMenu />
+                </div>
+            </MuiThemeProvider>
         );
     }
 }

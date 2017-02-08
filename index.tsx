@@ -4,7 +4,9 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import createRoutes from './routes';
 import createStore from './configureStore';
+import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
+injectTapEventPlugin();
 const { store } = createStore();
 const routes = createRoutes();
 const node = document.getElementById('root');

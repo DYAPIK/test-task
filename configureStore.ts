@@ -9,7 +9,7 @@ import {
 import thunk from 'redux-thunk';
 import { IReduxState } from './src/types/app';
 
-import chessReducer from './src/localRedux/reducers';
+import appReducer from './src/localRedux/reducers';
 
 interface IStoreData {
     store: Store<IReduxState>
@@ -17,7 +17,7 @@ interface IStoreData {
 
 function configureStore (): IStoreData {
     const reducer = combineReducers({
-        chess: chessReducer,
+        app: appReducer,
     });
     const middlewares: Middleware[] = [
         thunk
