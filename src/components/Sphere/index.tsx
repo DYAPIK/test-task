@@ -11,7 +11,7 @@ interface IState {
 class Sphere extends React.Component<{}, IState> {
 
     private b = block('sphere');
-    private squareRef: HTMLDivElement;
+    private elementRef: HTMLDivElement;
 
     constructor(props: {}) {
         super(props);
@@ -23,24 +23,26 @@ class Sphere extends React.Component<{}, IState> {
             positionX: null,
             positionY: null,
         }
-
     }
 
-    private startDrag(startEvent: React.MouseEvent<HTMLDivElement>): void {
+    private startDrag(event: React.MouseEvent<HTMLDivElement>): void {
+        // const a = new Sphere({ ref: this._onRef });
+        // React.cloneElement(, { className: this.b(), ref: this._onRef, onMouseDown: this.startDrag });
         document.addEventListener('mousemove', this._mouseMove);
         document.addEventListener('mouseup', this.endDrag);
     }
 
     private _mouseMove(event: MouseEvent): void {
-        const node = this.squareRef;
-        node.style.left = event.pageX - node.offsetWidth / 2 + 'px';
-        node.style.top = event.pageY - node.offsetHeight / 2 + 'px';
+        const node = this.elementRef;
+        node.style.left = `${event.pageX - node.offsetWidth / 2}px`;
+        node.style.top = `${event.pageY - node.offsetHeight / 2}px`;
         this.forceUpdate();
     }
 
     private _onRef(ref: HTMLDivElement): void {
         if (ref) {
-            this.squareRef= ref;
+            this.elementRef = ref;
+            ref.addEventListener('dragstart', () => { return false; })
         }
     }
 
@@ -55,10 +57,8 @@ class Sphere extends React.Component<{}, IState> {
 
     render () {
         const b = this.b;
-        console.log(this.state.positionX);
         return (
             <div
-                ref={this._onRef}
                 onMouseDown={this.startDrag}
                 className={b()}
             >

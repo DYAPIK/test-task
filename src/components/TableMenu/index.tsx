@@ -14,7 +14,7 @@ class TableMenu extends React.Component<{}, {}> {
             <div className={b()}>
                 <Tabs>
                     <Tab label="Доска 1">
-                        First
+                        <div></div>
                     </Tab>
                     <Tab label="Доска 2">
                         Second
