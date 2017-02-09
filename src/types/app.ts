@@ -1,10 +1,12 @@
 interface IReduxState {
-    tables: ITable[]
+    tables: ITable[][]
+    activeTable: number;
 }
 
 interface ITable {
-    positionX: string;
-    positionY: string;
+    positionX?: number;
+    positionY?: number;
+    type: string;
 }
 
 interface IAction {

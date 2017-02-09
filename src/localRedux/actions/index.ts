@@ -1,6 +1,6 @@
-// import * as chessActions from './chessActions';
-//
-//
-// export default {
-//     ...chessActions
-// }
+import * as actions from './actions';
+
+
+export default {
+    ...actions
+}
