@@ -4,9 +4,10 @@
   "description": "",
   "main": "configure-store.js",
   "scripts": {
-    "start": "webpack-dev-server --color --progress",
+    "app": "webpack-dev-server --color --progress",
     "build": "webpack --color --progress",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --color --progress"
   },
   "author": "Dmitry",
   "license": "ISC",
