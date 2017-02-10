@@ -9,7 +9,7 @@ module.exports = {
         app: './index.tsx',
     },
     output: {
-        publicPath: '/',
+        publicPath: './',
         path: './build/',
         filename: '[name].min.js',
     },
