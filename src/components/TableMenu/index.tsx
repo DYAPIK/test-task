@@ -10,11 +10,14 @@ import './style.styl';
 interface IOwnProps {
     tables: ITable[][]
     activeTable: number;
+    tableMenuHeight: number | null;
+    figureMenuWidth: number | null;
 }
 
 interface IDispatchProps {
     chooseActiveTab: typeof actions.chooseActiveTab;
     setFigurePosition: typeof actions.setFigurePosition;
+    createFigurePosition: typeof actions.createFigurePosition;
 }
 
 type Props = IOwnProps & IDispatchProps;
@@ -32,22 +35,24 @@ class TableMenu extends React.Component<Props, {}> {
         this.onClickTab = this.onClickTab.bind(this);
     }
 
-
     render () {
         const b = this.b;
-        const { tables, activeTable, setFigurePosition } = this.props;
+        const { tables, activeTable, setFigurePosition, createFigurePosition, figureMenuWidth, tableMenuHeight } = this.props;
         return (
             <div className={b()}>
                 <Tabs>
                     {tables.map((item, index) => {
                         return (
-                            <Tab label={`Доска ${index + 1}`}
+                            <Tab key={index} label={`Доска ${index + 1}`}
                                 onActive={this.onClickTab}
                             >
                                 <FiguresCanvas
                                     tableData={tables[index]}
                                     activeTable={activeTable}
                                     setFigurePosition={setFigurePosition}
+                                    createFigurePosition={createFigurePosition}
+                                    figureMenuWidth={figureMenuWidth}
+                                    tableMenuHeight={tableMenuHeight}
                                 />
                             </Tab>
                         )

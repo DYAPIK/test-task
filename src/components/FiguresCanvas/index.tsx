@@ -8,10 +8,13 @@ import './style.styl';
 interface IOwnProps {
     tableData: ITable[]
     activeTable: number;
+    tableMenuHeight: number | null;
+    figureMenuWidth: number | null;
 }
 
 interface IDispatchProps {
     setFigurePosition: typeof actions.setFigurePosition;
+    createFigurePosition: typeof actions.createFigurePosition;
 }
 
 type Props = IOwnProps & IDispatchProps;
@@ -22,7 +25,7 @@ class FiguresCanvas extends React.Component<Props, {}> {
 
     render () {
         const b = this.b;
-        const { tableData, activeTable, setFigurePosition } = this.props;
+        const { tableData, activeTable, setFigurePosition, createFigurePosition, tableMenuHeight, figureMenuWidth } = this.props;
         return (
             <div className={b()}>
                 {tableData.map((item, index) => {
@@ -35,6 +38,10 @@ class FiguresCanvas extends React.Component<Props, {}> {
                             top={item.positionY}
                             activeTable={activeTable}
                             setFigurePosition={setFigurePosition}
+                            createFigurePosition={createFigurePosition}
+                            offsetHeight={tableMenuHeight}
+                            offsetWidth={figureMenuWidth}
+                            initial={false}
                         />
                     )
                 })}

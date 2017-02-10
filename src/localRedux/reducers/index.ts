@@ -26,6 +26,21 @@ function reducer(state: IReduxState = initialState, action: IAction): IReduxStat
             .setIn(['tables', activeTable, activeItem, 'type'], type)
             .toJS()
     }
+    case ('CREATE_FIGURE_POSITION'): {
+        interface IData {
+            positionX: number;
+            positionY: number;
+            activeTable: number;
+            type: string;
+        }
+        const { positionX, positionY, activeTable, type } = action.payload as IData;
+        const currentTable = imState.getIn(['tables', activeTable]).toJS();
+        return imState
+            .setIn(['tables', activeTable, currentTable.length, 'positionX'], positionX)
+            .setIn(['tables', activeTable, currentTable.length, 'positionY'], positionY)
+            .setIn(['tables', activeTable, currentTable.length, 'type'], type)
+            .toJS()
+    }
     default:
         return state;
     }

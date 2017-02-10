@@ -17,7 +17,12 @@ function setFigurePosition(data: IArgsSetFigurePosition): IAction {
     return { type: 'SET_FIGURE_POSITION', payload: data }
 }
 
+function createFigurePosition(data: IArgsSetFigurePosition): IAction {
+    return { type: 'CREATE_FIGURE_POSITION', payload: data }
+}
+
 export {
     chooseActiveTab,
     setFigurePosition,
+    createFigurePosition,
 }
