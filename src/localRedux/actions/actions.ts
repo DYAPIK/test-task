@@ -9,6 +9,13 @@ interface IArgsSetFigurePosition {
     type: string;
 }
 
+interface IArgsCreateFigurePosition {
+    positionX: number;
+    positionY: number;
+    activeTable: number;
+    type: string;
+}
+
 function chooseActiveTab(activeTabIndex: number): IAction {
     return { type: 'CHOOSE_ACTIVE_TAB', payload: activeTabIndex }
 }
@@ -17,7 +24,7 @@ function setFigurePosition(data: IArgsSetFigurePosition): IAction {
     return { type: 'SET_FIGURE_POSITION', payload: data }
 }
 
-function createFigurePosition(data: IArgsSetFigurePosition): IAction {
+function createFigurePosition(data: IArgsCreateFigurePosition): IAction {
     return { type: 'CREATE_FIGURE_POSITION', payload: data }
 }
 

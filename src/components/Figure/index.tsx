@@ -16,11 +16,11 @@ interface IOwnProps {
     type: string;
     activeTable: number;
     initial: boolean;
-    index?: number;
-    top?: number;
-    left?: number;
+    index: number;
     offsetWidth: number | null;
     offsetHeight: number | null;
+    top?: number;
+    left?: number;
 }
 
 interface IDispatchProps {
@@ -106,14 +106,11 @@ class Figure extends React.Component<Props, IState> {
         document.removeEventListener('mousemove', this._mouseMove );
         document.removeEventListener('mouseup', this._endDrag );
         if (this._checkEntryInField(event.pageX, event.pageY)) {
-            const args = {
-                positionX: event.pageX - this.draggableFigureRef.offsetWidth / 2 - offsetWidth,
-                positionY: event.pageY - this.draggableFigureRef.offsetHeight / 2 - offsetHeight,
-                activeItem: index,
-                activeTable: activeTable,
-                type,
-            };
-            initial ? createFigurePosition(args) : setFigurePosition(args);
+            const positionX = event.pageX - this.draggableFigureRef.offsetWidth / 2 - offsetWidth;
+            const positionY = event.pageY - this.draggableFigureRef.offsetHeight / 2 - offsetHeight;
+            const setPositionArgs = { positionX, positionY, activeTable, type, activeItem: index };
+            const createPositionArgs = { positionX, positionY, activeTable, type };
+            initial ? createFigurePosition(createPositionArgs) : setFigurePosition(setPositionArgs);
             this.setState({
                 ...this.state,
                 draggable: false,
