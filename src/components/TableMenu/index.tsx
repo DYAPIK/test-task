@@ -48,14 +48,19 @@ class TableMenu extends React.Component<Props, {}> {
                                 label={`Доска ${index + 1}`}
                                 onActive={this.onClickTab}
                             >
-                                <FiguresCanvas
-                                    tableData={tables[index]}
-                                    activeTable={activeTable}
-                                    setFigurePosition={setFigurePosition}
-                                    createFigurePosition={createFigurePosition}
-                                    figureMenuWidth={figureMenuWidth}
-                                    tableMenuHeight={tableMenuHeight}
-                                />
+                                {index === activeTable ?
+                                    (
+                                        <FiguresCanvas
+                                            tableData={tables[index]}
+                                            activeTable={activeTable}
+                                            setFigurePosition={setFigurePosition}
+                                            createFigurePosition={createFigurePosition}
+                                            figureMenuWidth={figureMenuWidth}
+                                            tableMenuHeight={tableMenuHeight}
+                                        />
+                                    )
+                                    : null
+                                }
                             </Tab>
                         );
                     })}
