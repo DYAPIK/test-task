@@ -2,7 +2,7 @@
   "name": "APP",
   "version": "1.0.0",
   "description": "",
-  "main": "configure-store.js",
+  "main": "./build/app.min.js",
   "scripts": {
     "app": "webpack-dev-server --color --progress",
     "build": "webpack --color --progress",
