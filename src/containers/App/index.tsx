@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as Redux from 'redux'
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TableMenu from 'components/TableMenu'
+import Tables from 'components/Tables'
 import FiguresMenu from 'components/FiguresMenu';
 import actions from 'localRedux/actions';
 import { ITable } from 'types/app';
@@ -83,7 +83,7 @@ class App extends React.Component<Props, IState> {
                         figureMenuWidth={figureMenuWidth}
                         ref={this.onFigureMenuRef}
                     />
-                    <TableMenu
+                    <Tables
                         chooseActiveTab={chooseActiveTab}
                         tables={tables}
                         activeTable={activeTable}
