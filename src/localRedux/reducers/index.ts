@@ -1,6 +1,6 @@
 import { Map, fromJS } from 'immutable';
-import initialState from '../initial';
 import { IReduxState, IAction } from 'types/app';
+import initialState from '../initial';
 
 
 function reducer(state: IReduxState = initialState, action: IAction): IReduxState {

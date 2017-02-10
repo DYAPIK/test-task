@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as Redux from 'redux'
-import * as block from 'bem-cn';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TableMenu from 'components/TableMenu'
@@ -45,8 +44,6 @@ function mapDispatch(dispatch: Redux.Dispatch<IDispatchProps>): IDispatchProps {
 
 class App extends React.Component<Props, IState> {
 
-    private b = block('main');
-
     constructor(props: Props & IState) {
         super(props);
         this.onTableMenuRef = this.onTableMenuRef.bind(this);
@@ -73,7 +70,6 @@ class App extends React.Component<Props, IState> {
     }
 
     render () {
-        const b = this.b;
         const { chooseActiveTab, setFigurePosition, createFigurePosition, activeTable, tables } = this.props;
         const { tableMenuHeight, figureMenuWidth } = this.state;
         return (

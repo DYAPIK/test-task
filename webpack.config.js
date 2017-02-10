@@ -1,4 +1,3 @@
-var IS_DEV = 'development' === process.env.NODE_ENV;
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
@@ -61,8 +60,6 @@ module.exports = {
         ],
     },
 
-    // devtool: IS_DEV ? 'source-map' : null,
-
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
@@ -74,11 +71,4 @@ module.exports = {
         }),
     ],
 
-    devServer: {
-        host: '0.0.0.0',
-        port: 8000,
-        historyApiFallback: {
-            index: '/',
-        },
-    },
 };

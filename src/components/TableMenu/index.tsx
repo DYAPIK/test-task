@@ -43,7 +43,9 @@ class TableMenu extends React.Component<Props, {}> {
                 <Tabs>
                     {tables.map((item, index) => {
                         return (
-                            <Tab key={index} label={`Доска ${index + 1}`}
+                            <Tab
+                                key={index}
+                                label={`Доска ${index + 1}`}
                                 onActive={this.onClickTab}
                             >
                                 <FiguresCanvas
@@ -55,7 +57,7 @@ class TableMenu extends React.Component<Props, {}> {
                                     tableMenuHeight={tableMenuHeight}
                                 />
                             </Tab>
-                        )
+                        );
                     })}
                 </Tabs>
             </div>

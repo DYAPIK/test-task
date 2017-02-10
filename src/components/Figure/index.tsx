@@ -103,14 +103,19 @@ class Figure extends React.Component<Props, IState> {
             index,
             initial
         } = this.props;
+
         document.removeEventListener('mousemove', this._mouseMove );
         document.removeEventListener('mouseup', this._endDrag );
+
         if (this._checkEntryInField(event.pageX, event.pageY)) {
+
             const positionX = event.pageX - this.draggableFigureRef.offsetWidth / 2 - offsetWidth;
             const positionY = event.pageY - this.draggableFigureRef.offsetHeight / 2 - offsetHeight;
             const setPositionArgs = { positionX, positionY, activeTable, type, activeItem: index };
             const createPositionArgs = { positionX, positionY, activeTable, type };
+
             initial ? createFigurePosition(createPositionArgs) : setFigurePosition(setPositionArgs);
+
             this.setState({
                 ...this.state,
                 draggable: false,
@@ -118,6 +123,7 @@ class Figure extends React.Component<Props, IState> {
                 positionY: null,
                 dragExistFigure: false,
             });
+
         } else {
             this.setState({
                 ...this.state,

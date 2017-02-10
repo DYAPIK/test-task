@@ -1,5 +1,4 @@
-# Chess Game
-Realization chess game on the typescript, react, redux.
+# Test App
 
 # Deploy installation:
 1. `npm install`
