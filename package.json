@@ -4,7 +4,7 @@
   "description": "",
   "main": "configure-store.js",
   "scripts": {
-    "app": "webpack-dev-server --color --progress",
+    "start": "webpack-dev-server --color --progress",
     "build": "webpack --color --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
